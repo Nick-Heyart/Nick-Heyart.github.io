@@ -115,6 +115,7 @@ h2, h3 {
 }
 .navbar--color--secondary {
   background: rgba(81,166,228,0.9);
+	border-bottom-left-radius: 80px;
 }
 .navbar--color--ghost {
   background: rgba(0,0,0,0);
