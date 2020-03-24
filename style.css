@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900");
+html{
+	height: 100%;
+	width:100%;
+}
+body{
+  font-family: 'Lato', Arial, sans-serif;
+  color: #C1C1C1;
+  font-size: 17px;
+  line-height: 1.6;
+	height: 100%;
+}
+.hero {
+  position: relative;
+  height: 100%;
+  z-index: -2;
+	min-width:100%;
+	background-color: #000;
+}
+.overlay {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.3);
+}
+.main-content {
+  width:100%;
+}
+section {
+  background-color: #23272a;
+  padding: 3rem 0rem;
+	height:100%;
+	border-bottom-left-radius: 80px;
+}
+
+
+.light {
+  background-color: #2F3337;		
+}
+
+.dark {
+	background-color: #23272a
+}
+
+.blue {
+	background: rgba(81,166,228,1);
+}
+
+.footer{
+	background: rgba(81,166,228,1);
+	color:#23272A;
+	font-style: oblique;
+	height: 46px;
+	padding-top: 8px;
+	
+}
+
+.container{
+	width:100%;
+	padding:0;
+	margin:0;
+	
+}
+
+p {
+	padding-left: 7rem;
+}
+
+.un-container {
+	padding-left: 6rem;
+	padding-right: 6rem;
+}
+
+h2, h3 {
+  padding: 0rem 6rem .75rem;
+  font-weight: 700;
+  color: #fff;
+}
+/* ===================================== */
+/* ===== THE INTERESTING STUFF NOW ===== */
+/* ===================================== */
+.navbar {
+  border: none;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+/* --- navbar sizes --- */
+/* --- navbar colors --- */
+}
+.navbar-brand {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #3E3E3E;
+	padding-top: 20px;
+}
+.navbar--size--xl {
+  padding: 4rem 0;
+}
+.navbar--size--lg {
+  padding: 2rem 0;
+}
+.navbar--size--md {
+  padding: 1rem 0;
+}
+.navbar--size--sm {
+  padding: 0;
+}
+.navbar--color--white {
+  background: #fff;
+}
+.navbar--color--primary {
+  background: #37ca7e;
+}
+.navbar--color--secondary {
+  background: rgba(81,166,228,0.9);
+}
+.navbar--color--ghost {
+  background: rgba(0,0,0,0);
+}
+.navbar--color--ghost .navbar-brand,
+.navbar--color--ghost .navbar-text,
+.navbar--color--ghost a {
+  color: #fff;
+}
+
+/*nav links css*/
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+	max-width: 400;
+	border-bottom-left-radius: 22px;
+	border-top-right-radius: 22px;
+	text-decoration: none;
+}
+
+li {
+  float: left;
+	width: 100px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 8px 16px;
+  text-decoration: none;
+	border-style: solid;
+	border-color: #333;
+	border-width: 2px;
+	transition: 0.2s;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+	border-style: solid;
+	border-color: #51A6E4;
+	border-width: 2px;
+	transition: 0.2s;
+	color: white;
+}
+
+.active {
+  background-color: #51A6E4;
+	transition: 0.2s;
+}
+
+.active:hover {
+  background-color: #448EC4;
+	transition: 0.2s;
+	color: white;
+}
+
+.expand:hover .expand-content{/*visible properties*/
+	display: block;	
+	height:188.8px;
+	animation: out 0.2s ease-in-out normal;
+	border-bottom-left-radius: 22px;
+}
+
+@keyframes out {
+	from {
+		height: 0px;
+		border-bottom-left-radius: 0px;
+		}
+	to {
+		height: 188.8px;
+		border-bottom-left-radius: 22px;
+		}
+}
+
+@keyframes in {
+	from {
+		height: 188.8px;
+		border-bottom-left-radius: 22px;
+		}
+	to {
+		height: 0px;
+		border-bottom-left-radius: 0px;
+		}
+}
+
+.expand-content {/*invisible properties*/
+	display: block;
+	position: absolute;
+	float: left;
+	overflow: hidden;
+	height: 0px;
+	animation: in 0.2s ease-in-out normal;
+	border-width: 0;
+}
+
+.expand-content a{
+	width: 100px;
+	background-color: #333333;
+}
+
+.expand-button{
+	
+}
+
+video {
+	position: fixed;
+ 	right: 0;
+  	bottom: 0;
+  	width: 100%;
+	min-height: 100%;
+}
+
+.navbar-right {
+	max-width: 400px;
+}
