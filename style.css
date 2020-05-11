@@ -1,4 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,900");
+
+iframe{
+	padding-left: 10%;
+	padding-right: 10%;
+	width: 100%;
+	height: 500px;
+}
+
+
+/*background styling*/
+
 html{
 	height: 100%;
 	width:100%;
