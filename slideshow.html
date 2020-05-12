@@ -5,52 +5,74 @@
 		<link rel="stylesheet" href="./slideshow.css">
 	</head>
 	<body>
-	<div class="card">
-<div class="cont">
-	
-	<div data-am-fadeshow="next-prev-navigation">
 
-		<!-- Radio -->
-		<input type="radio" name="css-fadeshow" id="slide-1" />
-		<input type="radio" name="css-fadeshow" id="slide-2" />
-		<input type="radio" name="css-fadeshow" id="slide-3" />
-
-		<!-- Slides -->
-		<div class="fs-slides">
-			<div class="fs-slide" style="background-image: url(https://i.redd.it/kazq6jv71tp01.jpg);">
-				<!-- Add content to images (sample) -->
-				<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: sans-serif; text-align: center; text-shadow: 0 0 20px rgba(0,0,0,0.5);">
-				</div>
-			</div>
-			<div class="fs-slide" style="background-image: url(https://i.kym-cdn.com/photos/images/original/001/316/888/f81.jpeg);"></div>
-			<div class="fs-slide" style="background-image: url(https://c8.alamy.com/comp/EPF1YW/nun-with-handgun-isolated-on-white-EPF1YW.jpg);"></div>
+<section class="carousel" aria-label="Gallery">
+  <ol class="carousel__viewport">
+    <li id="carousel__slide1"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper">
+		  <img src="printer.jpg">
+        <a href="#carousel__slide4"
+           class="carousel__prev">Go to last slide</a>
+        <a href="#carousel__slide2"
+           class="carousel__next">Go to next slide</a>
+      </div>
+    </li>
+    <li id="carousel__slide2"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper">
+		<img src="birdhouse.jpg">
 		</div>
-
-		<!-- Quick Navigation -->
-		<div class="fs-quick-nav">
-			<label class="fs-quick-btn" for="slide-1"></label>
-			<label class="fs-quick-btn" for="slide-2"></label>
-			<label class="fs-quick-btn" for="slide-3"></label>
+      <a href="#carousel__slide1"
+         class="carousel__prev">Go to previous slide</a>
+      <a href="#carousel__slide3"
+         class="carousel__next">Go to next slide</a>
+    </li>
+    <li id="carousel__slide3"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper">
+		<img src="project.jpg">
 		</div>
-		
-		<!-- Prev Navigation -->
-		<div class="fs-prev-nav">
-			<label class="fs-prev-btn" for="slide-1"></label>
-			<label class="fs-prev-btn" for="slide-2"></label>
-			<label class="fs-prev-btn" for="slide-3"></label>
+      <a href="#carousel__slide2"
+         class="carousel__prev">Go to previous slide</a>
+      <a href="#carousel__slide4"
+         class="carousel__next">Go to next slide</a>
+    </li>
+    <li id="carousel__slide4"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper">
+		<img src="scouts.jpg">
 		</div>
-		
-		<!-- Next Navigation -->
-		<div class="fs-next-nav">
-			<label class="fs-next-btn" for="slide-1"></label>
-			<label class="fs-next-btn" for="slide-2"></label>
-			<label class="fs-next-btn" for="slide-3"></label>
-		</div>
-
-	</div>
-	
-</div>
-</div>
-<script src="./slideshow.js"></script>
+      <a href="#carousel__slide3"
+         class="carousel__prev">Go to previous slide</a>
+      <a href="#carousel__slide1"
+         class="carousel__next">Go to first slide</a>
+    </li>
+  </ol>
+  <aside class="carousel__navigation">
+    <ol class="carousel__navigation-list">
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide1"
+           class="carousel__navigation-button">Go to slide 1</a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide2"
+           class="carousel__navigation-button">Go to slide 2</a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide3"
+           class="carousel__navigation-button">Go to slide 3</a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide4"
+           class="carousel__navigation-button">Go to slide 4</a>
+      </li>
+    </ol>
+  </aside>
+</section>
 	</body>
 	
