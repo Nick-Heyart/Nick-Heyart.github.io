@@ -28,6 +28,7 @@ body{
   z-index: -2;
 	min-width:100%;
 	background-color: #000;
+	
 }
 .overlay {
   position: absolute;
@@ -127,8 +128,9 @@ h2, h3 {
   background: #37ca7e;
 }
 .navbar--color--secondary {
-  background: rgba(81,166,228,0.9);
+  background: rgba(81,166,228,0.85);
 	border-bottom-left-radius: 80px;
+	backdrop-filter:blur(.3rem);
 }
 .navbar--color--ghost {
   background: rgba(0,0,0,0);
@@ -192,8 +194,8 @@ li a:hover:not(.active) {
 
 .expand:hover .expand-content{/*visible properties*/
 	display: block;	
-	height:188.8px;
-	animation: out 0.2s ease-in-out normal;
+	height:250px;
+	animation: out 0.3s ease-in-out normal;
 	border-bottom-left-radius: 22px;
 }
 
@@ -203,14 +205,14 @@ li a:hover:not(.active) {
 		border-bottom-left-radius: 0px;
 		}
 	to {
-		height: 188.8px;
+		height: 250px;
 		border-bottom-left-radius: 22px;
 		}
 }
 
 @keyframes in {
 	from {
-		height: 188.8px;
+		height: 250px;
 		border-bottom-left-radius: 22px;
 		}
 	to {
@@ -225,7 +227,7 @@ li a:hover:not(.active) {
 	float: left;
 	overflow: hidden;
 	height: 0px;
-	animation: in 0.2s ease-in-out normal;
+	animation: in 0.3s ease-in-out normal;
 	border-width: 0;
 }
 
