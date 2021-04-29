@@ -9,10 +9,6 @@
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<!-- available colors: primary | secondary | white | ghost-->
-<!-- available sizes: xl | lg | md | sm-->
-<!-- the bootstrap navbar-->
 <nav class="navbar navbar-fixed-top navbar--color--ghost navbar--size--xl" data-startColor="navbar--color--ghost" data-startSize="navbar--size--xl" data-intoColor="navbar--color--secondary" data-intoSize="navbar--size--md">
   <div class="un-container">
     <div class="navbar-header">
@@ -60,22 +56,33 @@
       <p>I started by mounting the servo to the print head. I found a CAD model of the cooling fan that my printer uses, so I modified the back half of the casing model to have a place for the servo to be zip-tied in place. I printed this piece, and installed it in place of the original fan casing. Then, I mounted the Z axis end stop on to the end of a custom printed servo arm.</p>
       <p>So with the hardware integrations done, it was time to connect everything to the printer's control board. This is where the real challenge began. The control board was never designed to have this kind of functionality, so I had to do a bit of reverse engineering. The servo has 3 wires, two for power, one to control the position. The power wires were pretty straight forward, but I had no idea what to do with that control wire. Normally, there would be a designated place on the board for this wire to connect to, but there was no such place on this board. There was, however, an unused connector. I'm still not sure what it is supposed to be used for, but one of the pins on this connector was a digital output pin coming straight from the main processor. I soldered the wire to this pin, and then configured the marlin firmware to treat that digital pin as a servo.</p>
       <p>Now came the software integration. Luckily, marlin natively supports servo mounted probes. However, the configuration process was quite complicated. I had to calculate the precise position of the deployed probe relative to the nozzle, which was further complicated by the imprecise way that servos move to specific angles, which was further complicated by the unorthodox way that the servo was connected to the board. Nevertheless, I got it working. You can see it featured in the video at the top of this website's home page. This was most certainly the most complex upgrade I have ever made to the printer, but also the most useful. One of the most common problems with mine, and many other 3D printers is the bed leveling. This issue is easily fixed, but the process of manually leveling a bed takes a couple minutes. Those minutes add up quickly, especially when your print bed is held on by some wing nuts that get rotated slightly by the vibrations of each print. I would estimate that this modification has saved me more than double the time that it took to install.</p>
+		<p>But the point is that the extent of my abilities has gone from swapping out parts to designing, manufacturing, and integrating much more complex parts with electrical and software components. These skills are applicable to many things of much more significance than my ultra-cheap 3D printer.</p>
     </section>
   </div>
   <div class="light">
     <section>
       <h2>Artifact 2</h2>
-      <p> Artifact 2 stuff goes here<br />
-        Blah <br />
-      </p>
+		<h3>This website</h3>
+      <p>rant about how good this site is idk</p>
     </section>
   </div>
   <div class="dark">
     <section class="light">
       <h2>Artifact 3</h2>
-      <p> Artifact 3 stuff goes here<br />
-        Blah <br />
-      </p>
+		<h3>Airplanes (ongoing)</h3>
+      <p>5 years ago, I took the Flight 101 Stemersion. In that program, you build your own R/C airplane out of pre-cut pieces of lightweight foam, various types of adhesives, and a relativley simple electronics system. I've always had an interest in flying things, especally ones that I get to mess around with. I planned on taking the Stemersion again this year, but normal Stemersions were cancled this year. But I would't let that keep me from making an R/C airplane.</p>
+	  <p>I am working with some of the teachers that would normally manage the Flight 101 to obtain things like propellers, motors, and servos. I won't be using any pre-cut foam pieces on this plane, though. I want to make a flying wing design, as the lack of a long fuselage makes it easier to move from my home workspace to the workspace at DRSS. Speaking of which, I am incredibly lucky to have access to the machenery in the Camp Dosser workspece. Being able to laser cut 48 inch wide pieces of carboard without having to glue together a bunch of smaller pieces is something that very few people can do. You really start to appreciate that equpment a lot more when you actually get to work with it.</p>
+		<h3>Version 1</h3>
+		<h4>Design</h4>
+		<p>I basically eyeballed this entire design. I booted up Fusion 360 and plotted out a bunch of lines that formed something kind of aerodynamic looking. According to a 2006 study conducted by U.S. Airforce, Most aerospace engineers will agree that making decisions based on what "looks about right" rarley results in effective designs. We will go over the effectivness of this design later. The pane was a little over 20 inches wide, and about 7 inches long.</p>
+		<h4>Build process</h4>
+		<p>My material of choice for this version was cardboard. I cut up a random piece of packaging up into 4 rectangular pieces, brought the pieces to school, cut one of them out on the laser cutter, and glued all the components together using hot glue. I was not able to use the radio system used by flight 101, as the pitch and roll axies do not correspond directley to a single servo. Instead I used my own FrSky radio system. The transmitter end of this system can perform some mathematic operations with the input axies before sending them off to the reciever, which is a nessicary feature for making flying wings due to the more complex way that their control surfaces need to be actuated in order to make changes to the pitch of the aircraft.</p>
+		<h4>Results</h4>
+		<p>This design has a lot of flaws. Starting with the center of gravity, I gave no consideration to this during the design process. I just put a long strip of velcro on the bottom of the plane, allowing me to adjust the center of gravity by sticking the battery down at different positions along the plane. I wasn't really sure where the center of gravity should have been, but the center of gravity never really got the chance to become a major issue.</p>
+		<p>The motor and propeller that I used were just what the Flight 101 program happened to be using. Typically, you would spin a small popeller at a high speed using a small, high RPM motor for an aircraft of this scale. But the Flight 101 program builds large aircraft that use larger, relativley low RPM motors paired with larger propellers. I just hot glued this motor/propeller combo onto the front of the plane assuming that thrust is thrust, and nothing could go wrong. Well, I assumed incorrectley. This larger motor/propeller combo puts a lot more torqe on the  actual body of the plane. The larger Flight 101 planes can handle this torqe without issue, but my smaller plane with its smaller, significantly lighter body gets thrown into a violent roll, even before the plane can accelerate to a speed where the control surfaces have enough authority to cancel out the roll. Needless to say, version 1 of this plane was a failure.</p>
+		<h3>Version 2 (WIP)</h3>
+		<h4>Design</h4>
+		<p>I'm still doing my homework on what makes a functional aircraft, but I can say for certain that version 2 of this airplane will be significantly larger, and be proportionatley longer than version 1 so that I don't have to buy new motors and propellers. Also, I will probably move the propeller to the back of the plane. Other than that, I can't really give any specifics about the design of version 2. I will continue to update this page as progress is made on this revision.</p>
     </section>
   </div>
   <div class="container blue">
