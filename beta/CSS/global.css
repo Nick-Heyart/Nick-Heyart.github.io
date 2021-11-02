@@ -525,6 +525,13 @@ iframe {
   border-radius: 15px 0 15px 0;
 }
 
+.youtube, video, .b {
+  width: 60vw;
+  height: calc(60vw / calc(16 / 9));
+  border-radius: 15px 0 15px 0;
+  margin: 10px 10%;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   transition: ease;
