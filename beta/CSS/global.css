@@ -338,7 +338,7 @@ svg.active .svg-elem-11 {
 
 .content {
   margin: 0;
-  margin-top: 60px;
+  margin-top: 120px;
   text-align: justify;
 }
 
@@ -376,9 +376,6 @@ a:hover {
   padding: 10px 12%;
 }
 
-.section:first-of-type>h2:first-of-type {
-  text-align: right;
-}
 
 .section:nth-of-type(even) {
   background-color: var(--light);
