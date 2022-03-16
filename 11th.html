@@ -1,116 +1,202 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Nick Heyart</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="shortcut icon" href="thumbnail.jpg" type="image/jpeg">
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-<link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nick Heyart</title>
+  <link rel="stylesheet" href="CSS/global.css">
 </head>
+
 <body>
-<nav class="navbar navbar-fixed-top navbar--color--ghost navbar--size--xl" data-startColor="navbar--color--ghost" data-startSize="navbar--size--xl" data-intoColor="navbar--color--secondary" data-intoSize="navbar--size--md">
-	<div class="un-container">
-		<div class="navbar-header">
-			<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#mobileNav" aria-expanded="false"><span class="sr-only">Toggle navigation</span></button>
-			<a class="navbar-brand" href="#">Nick Heyart</a> </div>
-		<div class="navbar-right navbar-text">
-			<ul>
-				<li><a href="index.html" style="border-bottom-left-radius: 23px;">Home</a></li>
-				<li class="expand"> <a href="javascript:void(0)" class="expand-button, active"> Projects </a>
-					<div class="expand-content"> <a href="https://portfolios.daytonstemschool.org/heyart3/7thPortfolio/">7th</a> <a href="https://portfolios.daytonstemschool.org/heyart3/8thPortfolio/">8th</a> <a href="https://portfolios.daytonstemschool.org/heyart3/9thPortfolio/">9th</a> <a href="10th.html">10th</a> <a href="11th.html" style="border-bottom-left-radius: 31px" class="active">11th</a> </div>
-				</li>
-				<li> <a href="skills.html">Skills</a> </li>
-				<li> <a href="resume.html" style="border-top-right-radius: 23px;">Resume</a> </li>
-			</ul>
-		</div>
-	</div>
-</nav>
-<!-- body content-->
-<div class="main-content top">
-	<div class="container light">
-		<section> <br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<h2>Growth Statement</h2>
-			<p>This year has been a bit different than previous years in the ways that my knowledge has developed. I have stopped being completley reliant on DRSS to introduce me to new concepts or point me in the direction of cool things to do, and I've started learning more things on my own time, purley out of my own interest. I can start and manage my own personal projects, and then document the projects so that I can re-visit them, or if someone else is interested in the material.</p>
-		</section>
-	</div>
-	<div class="container dark">
-		<section class="light">
-			<h2>Artifacts</h2>
-			<p> Growth artifacts are things, physical or virtual, that exhibit improvement in the person who made the thing in question. It could be the result of a school project, a personal project, or anything really. If it shows an improvement in myself, it belongs in here. </p>
-			<h2>Artifact 1</h2>
-			<h3>My 3D Printer</h3>
-			<p> Normally, when someone says "this is my ____", they mean that they bought or inherited it. However, my relationship with this printer goes a bit deeper than a simple purchase. The printer is an Anet A8, a 3D printer kit that involves a lot of assembly. Side effects of this assembly process is that you end up learning a lot about how the printer works, and you feel comfortable making modifications to the printer later on. There is a pretty large community dedicated to the printer, and they regularly share 3D printable parts that can be used to further the capabilities of the printer.</p>
-			<img src="printer probe.jpg" style="margin-left: 7rem;">
-			<p>So how does this exhibit growth? At the beginning of the 2020-21 school year, my printer had upgrades that were only physical changes to the printer, nothing that was actually too difficult to integrate into the existing mechanisms. However, I decided that I wanted my printer to have automatic bed leveling functionality. In order to get this functionality, there has to be a probe on the print-head that can sense the build surface, and also not interfere with the printer while it is printing. I wanted to make this probe as cheaply as possible, so I used parts that I already had lying around. I decided that I would take the current Z axis limit switch and attach it to a servo. Then, I would attach the servo to the print head. I would then configure the printer's firmware to move the servo down, deploying the probe when it needs to use the probe, and then move the servo back up, retracting the probe when it needs to perform actions that could damage the deployed probe.</p>
-			<p>I started by mounting the servo to the print head. I found a CAD model of the cooling fan that my printer uses, so I modified the back half of the casing model to have a place for the servo to be zip-tied in place. I printed this piece, and installed it in place of the original fan casing. Then, I mounted the Z axis end stop on to the end of a custom printed servo arm.</p>
-			<p>So with the hardware integrations done, it was time to connect everything to the printer's control board. This is where the real challenge began. The control board was never designed to have this kind of functionality, so I had to do a bit of reverse engineering. The servo has 3 wires, two for power, one to control the position. The power wires were pretty straight forward, but I had no idea what to do with that control wire. Normally, there would be a designated place on the board for this wire to connect to, but there was no such place on this board. There was, however, an unused connector. I'm still not sure what it is supposed to be used for, but one of the pins on this connector was a digital output pin coming straight from the main processor. I soldered the wire to this pin, and then configured the marlin firmware to treat that digital pin as a servo.</p>
-			<p>Now came the software integration. Luckily, marlin natively supports servo mounted probes. However, the configuration process was quite complicated. I had to calculate the precise position of the deployed probe relative to the nozzle, which was further complicated by the imprecise way that servos move to specific angles, which was further complicated by the unorthodox way that the servo was connected to the board. Nevertheless, I got it working. You can see it featured in the video at the top of this website's home page. This was most certainly the most complex upgrade I have ever made to the printer, but also the most useful. One of the most common problems with mine, and many other 3D printers is the bed leveling. This issue is easily fixed, but the process of manually leveling a bed takes a couple minutes. Those minutes add up quickly, especially when your print bed is held on by some wing nuts that get rotated slightly by the vibrations of each print. I would estimate that this modification has saved me more than double the time that it took to install.</p>
-			<img src="printer wiring.jpg" style="margin-left: 7rem;">
-			<p>But the point is that the extent of my abilities has gone from swapping out parts to designing, manufacturing, and integrating much more complex parts with electrical and software components. These skills are applicable to many things of much more significance than my ultra-cheap 3D printer.</p>
-		</section>
-	</div>
-	<div class="light">
-		<section>
-			<h2>Artifact 2</h2>
-			<h3>This website</h3>
-			<p>This year has marked the first year that I didn't feel the need to completely redesign my entire website. Last year I went above and beond to make a visually pleasing site, and that design has held up for the most part. My growth in website building in the past few years has been less of gaining technical skills, and more about learning how to effectivley put those skills to use.</p>
-			<p>Now, that's not to say that I haven't learned anything about websites this year. I learned a few new CSS tricks like how to apply gausian blur, or how to customize the look of the scroll bar. But most of what I've learned this year is about making good website content. I really got it into my head that websites are a visual meadia, and that they must be used as such. They're not like a word document where you can just throw a bunch of words on the screen and call it a day, you have to give the viewers some kind of sensory media, audio, videos, still images, whatever. You have got to have some kind of entertainment value in there, or nobody will pay attention to your work.</p>
-		</section>
-	</div>
-	<div class="dark">
-		<section class="light">
-			<div id="airplane"></div>
-			<h2>Artifact 3</h2>
-			<h3>Airplanes</h3>
-			<p>5 years ago, I took the Flight 101 Stemersion. In that program, you build your own R/C airplane out of pre-cut pieces of lightweight foam, various types of adhesives, and a relatively simple electronics system. I've always had an interest in flying things, especially ones that I get to mess around with. I planned on taking the Stemersion again this year, but normal Stemersions were canceled this year. But I wouldn't let that keep me from making an R/C airplane.</p>
-			<p>I am working with some of the teachers that would normally manage the Flight 101 to obtain things like propellers, motors, and servos. I won't be using any pre-cut foam pieces on this plane, though. I want to make a flying wing design, as the lack of a long fuselage makes it easier to move from my home workspace to the workspace at DRSS. Speaking of which, I am incredibly lucky to have access to the machinery in the Camp Dosser workspace. Being able to laser cut 48 inch wide pieces of cardboard without having to glue together a bunch of smaller pieces is something that very few people can do. You really start to appreciate that equipment a lot more when you actually get to work with it.</p>
-			<h3>Version 1</h3>
-			<img src="plane-v1-front.jpg" style="margin-left: 7rem;">
-			<h4>Design</h4>
-			<p>I basically eyeballed this entire design. I booted up Fusion 360 and plotted out a bunch of lines that formed something kind of aerodynamic looking. According to a 2006 study conducted by U.S. Air force, Most aerospace engineers will agree that making decisions based on what "looks about right" rarely results in effective designs. We will go over the effectiveness of this design later. The pane was a little over 20 inches wide, and about 7 inches long.</p>
-			<h4>Build process</h4>
-			<p>My material of choice for this version was cardboard. I cut up a random piece of packaging up into 4 rectangular pieces, brought the pieces to school, cut one of them out on the laser cutter, and glued all the components together using hot glue. I was not able to use the radio system used by flight 101, as the pitch and roll axies do not correspond directly to a single servo. Instead I used my own FrSky radio system. The transmitter end of this system can perform some mathematic operations with the input axies before sending them off to the receiver, which is a necessary feature for making flying wings due to the more complex way that their control surfaces need to be actuated in order to make changes to the pitch of the aircraft.</p>
-			<h4>Results</h4>
-			<p>This design has a lot of flaws. Starting with the center of gravity, I gave no consideration to this during the design process. I just put a long strip of Velcro on the bottom of the plane, allowing me to adjust the center of gravity by sticking the battery down at different positions along the plane. I wasn't really sure where the center of gravity should have been, but the center of gravity never really got the chance to become a major issue.</p>
-			<p>The motor and propeller that I used were just what the Flight 101 program happened to be using. Typically, you would spin a small propeller at a high speed using a small, high RPM motor for an aircraft of this scale. But the Flight 101 program builds large aircraft that use larger, relatively low RPM motors paired with larger propellers. I just hot glued this motor/propeller combo onto the front of the plane assuming that thrust is thrust, and nothing could go wrong. Well, I assumed incorrectly. This larger motor/propeller combo puts a lot more torque on the  actual body of the plane. The larger Flight 101 planes can handle this torque without issue, but my smaller plane with its smaller, significantly lighter body gets thrown into a violent roll, even before the plane can accelerate to a speed where the control surfaces have enough authority to cancel out the roll. Needless to say, version 1 of this plane was a failure.</p>
-			<h3>Version 2 (WIP)</h3>
-			<h4>Design</h4>
-			<p>I'm still doing my homework on what makes a functional aircraft, but I can say for certain that version 2 of this airplane will be significantly larger, and be proportionately longer than version 1 so that I don't have to buy new motors and propellers. Also, I will probably move the propeller to the back of the plane. Other than that, I can't really give any specifics about the design of version 2. I will continue to update this page as progress is made on this revision.</p>
-			<h3>Growth</h3>
-			<p>I have learned a lot about what makes a good plane just from observing the failure of version 1, and comparing it to existing, functional designs. I have also gotten familiar with the means of making my own aircraft, which should make the production of subsequent revisions much faster. I feel that most of the growth that will happen as a result of this project will take place after version two, as that will hopefully involve me refining functional aircraft and learning actual aerodynamic principles.</p>
-		</section>
-	</div>
-	<div class="container blue">
-		<section>
-			<h2>5 Qualities</h2>
-			<p>The 5 Qualities are aspects that the Dayton Regional STEM School looks for in their  students. These qualities can define one's success, both independently and in the workplace. </p>
-			<h3>Creativity</h3>
-			<p>It's easy to get your mind stuck on art when talking about this quality, but creativity in this context is much closer to problem solving. Originality is key to solving any problem with more complexity than a multiple choice quiz.</p>
-			<img src="creativity.png">
-			<h3>Collaboration</h3>
-			<p>Everybody that refuses to work with others is effectively stranding themselves on an island. That approach might work for small tasks, but most larger projects cannot be done in a practical time-frame with a single person working on them.</p>
-			<img src="collaboration.png">
-			<h3>Communication</h3>
-			<p>This one goes hand-in-hand with collaboration. In order to work well with other people, you have to communicate well with other people. It doesn't matter how good your work is if someone else already did it.</p>
-			<img src="communication.png">
-			<h3>Inquiry</h3>
-			<p>You never know everything there is to know, which is why it is important to not be afraid to ask questions. You also must be respectful to other people's questions, even if they might seem stupid.</p>
-			<img src="inquiry.png">
-			<h3>Persistence</h3>
-			<p>Some tasks are fun to work on, and some aren't. Either way, stuff needs to get done, and a team member that gives up at the first sign of difficulty does not help.</p>
-			<img src="persistance.png"></section>
-	</div>
-</div>
-<div class="footer">
-	<p> &copy;Nick Heyart 2021 </p>
-</div>
-<!-- partial -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script><script  src="./script2.js"></script>
+  <div class="sticky">
+    <div class="face1">
+      <svg class="active" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 302.6 61.89" width="302.6000061035156" height="61.88999938964844">
+        <defs>
+          <style>
+            .cls-1 {
+              fill: #fff;
+              stroke-miterlimit: 10;
+              stroke-width: 0.25px;
+            }
+
+            .cls-1,
+            .cls-2 {
+              stroke: #fff;
+            }
+
+            .cls-2 {
+              fill: none;
+              stroke-linecap: round;
+              stroke-linejoin: round;
+              stroke-width: 1.5px;
+            }
+          </style>
+        </defs>
+        <path class="cls-1 svg-elem-1"
+          d="M85.5,39.48V81.76H82.64a2.41,2.41,0,0,1-1.14-.24,2.74,2.74,0,0,1-.9-.8L56.14,48.86c0,.49.07,1,.09,1.45s0,.91,0,1.33V81.76h-5V39.48h3a4,4,0,0,1,.65.05,2.15,2.15,0,0,1,.47.14,1.78,1.78,0,0,1,.41.3,3.67,3.67,0,0,1,.44.49L80.63,72.29c0-.51-.07-1-.1-1.49s0-.94,0-1.38V39.48Z"
+          transform="translate(-51.12 -38.18)"></path>
+        <path class="cls-1 svg-elem-2"
+          d="M101.28,42.49a3.28,3.28,0,0,1-.31,1.43,4.06,4.06,0,0,1-.83,1.18,3.48,3.48,0,0,1-1.21.81,3.63,3.63,0,0,1-1.46.3,3.59,3.59,0,0,1-2.59-1.11,4,4,0,0,1-.8-1.18,3.42,3.42,0,0,1-.29-1.43A3.63,3.63,0,0,1,94.08,41a4,4,0,0,1,.8-1.21A3.79,3.79,0,0,1,96,39a3.45,3.45,0,0,1,1.43-.29,3.63,3.63,0,0,1,1.46.29,3.78,3.78,0,0,1,1.21.81A4.07,4.07,0,0,1,101,41,3.48,3.48,0,0,1,101.28,42.49Zm-1.12,9.38V81.76H94.91V51.87Z"
+          transform="translate(-51.12 -38.18)"></path>
+        <path class="cls-1 svg-elem-3"
+          d="M129.57,57.18a2.3,2.3,0,0,1-.47.5,1.07,1.07,0,0,1-.65.18,1.74,1.74,0,0,1-1-.37c-.35-.24-.79-.51-1.31-.81a11.09,11.09,0,0,0-1.92-.81,8.91,8.91,0,0,0-2.78-.37,9.17,9.17,0,0,0-3.9.78,7.45,7.45,0,0,0-2.81,2.26A10.23,10.23,0,0,0,113,62.11a17.88,17.88,0,0,0-.57,4.69,17.19,17.19,0,0,0,.62,4.82,10.29,10.29,0,0,0,1.75,3.54,7.57,7.57,0,0,0,2.75,2.19,8.42,8.42,0,0,0,3.61.75,9.14,9.14,0,0,0,3.16-.46,8.89,8.89,0,0,0,2.05-1c.54-.37,1-.71,1.35-1a1.7,1.7,0,0,1,1.08-.46,1.16,1.16,0,0,1,1,.5l1.48,1.92a10.76,10.76,0,0,1-2.21,2.06,14.08,14.08,0,0,1-5.67,2.27,18.61,18.61,0,0,1-3.18.27,13.2,13.2,0,0,1-5.21-1,11.89,11.89,0,0,1-4.17-3,14,14,0,0,1-2.78-4.82A21.35,21.35,0,0,1,108,60.63a14.06,14.06,0,0,1,2.71-4.88,12.35,12.35,0,0,1,4.4-3.2,14.7,14.7,0,0,1,6-1.15,14.11,14.11,0,0,1,5.56,1A13.43,13.43,0,0,1,131,55.29Z"
+          transform="translate(-51.12 -38.18)"></path>
+        <path class="cls-1 svg-elem-4"
+          d="M142.22,38.3V63.88h1.36a2.63,2.63,0,0,0,1-.16,2.48,2.48,0,0,0,.84-.67l9.44-10.12a3.68,3.68,0,0,1,.87-.78,2.37,2.37,0,0,1,1.22-.28h4.75l-11,11.71A6.75,6.75,0,0,1,149,65.15a5.29,5.29,0,0,1,1,.81,7.62,7.62,0,0,1,.81,1.05l11.68,14.75h-4.69a2.73,2.73,0,0,1-1.16-.23,1.87,1.87,0,0,1-.85-.81l-9.82-12.24a2.3,2.3,0,0,0-.87-.81,3.32,3.32,0,0,0-1.31-.19h-1.51V81.76h-5.28V38.3Z"
+          transform="translate(-51.12 -38.18)"></path>
+        <path class="cls-1 svg-elem-5" d="M217.51,39.48V81.76h-5.73V62.52H189V81.76h-5.72V39.48H189V58.33h22.8V39.48Z" transform="translate(-51.12 -38.18)"></path>
+        <path class="cls-1 svg-elem-6"
+          d="M250.4,77.57a10.24,10.24,0,0,1-2.33,2.05,14.84,14.84,0,0,1-2.91,1.43,19.26,19.26,0,0,1-6.47,1.12,15.15,15.15,0,0,1-5.71-1,12.52,12.52,0,0,1-4.51-3.07,14,14,0,0,1-3-5,20.22,20.22,0,0,1-1.06-6.84,17.37,17.37,0,0,1,1-5.84,13.82,13.82,0,0,1,2.76-4.71,12.67,12.67,0,0,1,4.39-3.12,14.39,14.39,0,0,1,5.84-1.14,13.43,13.43,0,0,1,5,.9,11.23,11.23,0,0,1,4,2.6,11.89,11.89,0,0,1,2.61,4.18,16,16,0,0,1,.94,5.68,3.57,3.57,0,0,1-.26,1.66,1.13,1.13,0,0,1-1,.41h-20a17.49,17.49,0,0,0,.78,4.92,9.92,9.92,0,0,0,1.94,3.5,7.8,7.8,0,0,0,3,2.1,10.13,10.13,0,0,0,3.83.69,11.12,11.12,0,0,0,3.41-.46,15.32,15.32,0,0,0,2.46-1c.69-.35,1.26-.68,1.73-1a2.24,2.24,0,0,1,1.19-.46,1.16,1.16,0,0,1,1,.5Zm-4.25-14a10.4,10.4,0,0,0-.51-3.34,7.58,7.58,0,0,0-1.51-2.63,6.67,6.67,0,0,0-2.4-1.71,8.22,8.22,0,0,0-3.22-.61,8.07,8.07,0,0,0-6,2.2,10.27,10.27,0,0,0-2.73,6.09Z"
+          transform="translate(-51.12 -38.18)"></path>
+        <path class="cls-1 svg-elem-7"
+          d="M282.32,51.87,265.65,90.58a2.92,2.92,0,0,1-.66.94,1.81,1.81,0,0,1-1.23.35h-3.89L265.33,80,253,51.87h4.54a1.66,1.66,0,0,1,1.08.34,1.88,1.88,0,0,1,.54.75l8,18.83a20.56,20.56,0,0,1,.79,2.59c.28-.92.57-1.8.89-2.63L276.6,53a1.69,1.69,0,0,1,.6-.78,1.66,1.66,0,0,1,1-.31Z"
+          transform="translate(-51.12 -38.18)"></path>
+        <path class="cls-1 svg-elem-8"
+          d="M285.59,56.09a17.36,17.36,0,0,1,5.34-3.57,16.47,16.47,0,0,1,6.35-1.18,11.32,11.32,0,0,1,4.45.83,9.09,9.09,0,0,1,3.27,2.3A9.6,9.6,0,0,1,307,58a14.9,14.9,0,0,1,.68,4.6V81.76h-2.33a2.24,2.24,0,0,1-1.18-.26,1.66,1.66,0,0,1-.65-1l-.59-2.84a29,29,0,0,1-2.3,1.94A13.26,13.26,0,0,1,298.28,81a12.81,12.81,0,0,1-2.64.89,14.89,14.89,0,0,1-3.11.31,10.62,10.62,0,0,1-3.28-.49,7.53,7.53,0,0,1-2.67-1.46,6.83,6.83,0,0,1-1.8-2.46,8.65,8.65,0,0,1-.66-3.53,6.59,6.59,0,0,1,1-3.41,8.55,8.55,0,0,1,3.16-2.9,20.45,20.45,0,0,1,5.69-2.08,43.57,43.57,0,0,1,8.62-.93V62.64a8,8,0,0,0-1.51-5.27,5.42,5.42,0,0,0-4.39-1.78,9.29,9.29,0,0,0-3.26.49,11.53,11.53,0,0,0-2.28,1.09c-.63.4-1.19.76-1.65,1.09a2.42,2.42,0,0,1-1.37.49,1.54,1.54,0,0,1-.91-.28,2.42,2.42,0,0,1-.65-.7Zm17,12.21a43.1,43.1,0,0,0-6.18.58,17.3,17.3,0,0,0-4.16,1.19,5.82,5.82,0,0,0-2.33,1.74,3.72,3.72,0,0,0-.73,2.25,4.87,4.87,0,0,0,.39,2,3.7,3.7,0,0,0,1,1.4,4.25,4.25,0,0,0,1.57.8,7,7,0,0,0,1.93.25,10.63,10.63,0,0,0,2.54-.28,9.81,9.81,0,0,0,2.16-.81,12.77,12.77,0,0,0,1.95-1.27,16.61,16.61,0,0,0,1.82-1.68Z"
+          transform="translate(-51.12 -38.18)"></path>
+        <path class="cls-1 svg-elem-9"
+          d="M320.67,57.86a13.41,13.41,0,0,1,3.48-4.79,7.62,7.62,0,0,1,5-1.73,7.75,7.75,0,0,1,1.82.21,4.89,4.89,0,0,1,1.55.65l-.39,3.92a.84.84,0,0,1-.88.74,6,6,0,0,1-1.21-.18,8.18,8.18,0,0,0-1.8-.18,7,7,0,0,0-2.52.42,5.8,5.8,0,0,0-2,1.22,8.52,8.52,0,0,0-1.56,2A16.53,16.53,0,0,0,321,62.88V81.76h-5.28V51.87h3a1.63,1.63,0,0,1,1.18.33,1.89,1.89,0,0,1,.44,1.12Z"
+          transform="translate(-51.12 -38.18)"></path>
+        <path class="cls-1 svg-elem-10"
+          d="M346.33,82.23a7.19,7.19,0,0,1-5.44-2,7.87,7.87,0,0,1-1.9-5.69V56.27h-3.6a1.22,1.22,0,0,1-.8-.28,1.12,1.12,0,0,1-.32-.87V53l4.89-.62,1.21-9.23a1.32,1.32,0,0,1,.4-.72,1.16,1.16,0,0,1,.81-.28h2.66V52.46h8.64v3.81h-8.64V74.2a3.83,3.83,0,0,0,.91,2.81,3.2,3.2,0,0,0,2.36.91,4.09,4.09,0,0,0,1.43-.22,5.74,5.74,0,0,0,1.05-.49c.3-.17.55-.34.75-.48a1,1,0,0,1,.55-.23A.92.92,0,0,1,352,77l1.53,2.5a9.7,9.7,0,0,1-3.27,2A11,11,0,0,1,346.33,82.23Z"
+          transform="translate(-51.12 -38.18)"></path>
+        <polyline class="cls-2 svg-elem-11" points="153.92 56.1 148.88 61.14 143.83 56.1"></polyline>
+      </svg>
+    </div>
+    <div class="navspace"></div>
+    <div class="face2">
+      <ul>
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="qualities.html">5 Qualities</a></li>
+        <li><a href="12.html#coding">Coding progression</a></li>
+      </ul>
+      <div class="dropdown">
+        <div class="corner1">
+          <div class="corner2"></div>
+        </div>
+        <button>
+          Projects <i class="down"></i>
+        </button>
+        <div class="dropdown-content">
+          <ul class="column-1">
+              <li><a href="7th.html">7th Grade</a></li>
+              <li><a href="8th.html">8th Grade</a></li>
+              <li><a href="9th.html">9th Grade</a></li>
+              <li><a href="10th.html">10th Grade</a></li>
+              <li><a href="11th.html">11th Grade</a></li>
+            </ul>
+            <ul class="column-2">
+              <li><a href="12th.html">12th Grade</a></li>
+              <li><a href="internship.html">Internship</a></li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h1>Home</h1>
+  <div class="content">
+    <div class="section">
+      <h2>About Me</h2>
+      <img class="a" src="images/guy1.jpg" style="height: 250px;">
+      <p>
+        Welcome to my website. My name is Nick. I Am a graduating senior at the Dayton Regional STEM School and Eagle scout in troop 71. I have lots of hobbies, most of which are technology related. I make videos, 3D animations and artwork, build and
+        modify R/C vehicles and planes, Build and maintain FDM 3D printers, Design websites, and build / fix computers. I also like going camping and boating.
+      </p>
+      <p>
+        My old about me section was made up of a bunch of different sections and had no real introductory paragraph. The image system for this site relies on a substantial amount of text accompanying images, so I’ll have to think of some more stuff
+        to put here so that the image doesn’t clip through the section transition. I'll also have to increase the height of the image so it doesn't cut off my face, but I haven't done that yet since I would have to write even more stuff. Isn’t this fun.
+      </p>
+      <p>Also I still have to track down a decent image of myself. Until then, enjoy staring into the empty eyes of a random stock image I don't have the legal rights to be using here.</p>
+      <p>
+        Feugiat pretium nibh ipsum consequat nisl vel pretium. Interdum velit laoreet id donec ultrices. Ultricies integer quis auctor elit sed vulputate mi. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Felis imperdiet
+        proin fermentum leo vel orci. Ut morbi tincidunt augue interdum velit euismod in. Sem et tortor consequat id porta nibh. Quis commodo odio aenean sed. Id aliquet lectus proin nibh. Imperdiet proin fermentum leo vel. Porttitor lacus luctus
+        accumsan tortor. Porttitor eget dolor morbi non arcu risus quis varius. Quam quisque id diam vel quam elementum pulvinar. Varius duis at consectetur lorem. Venenatis a condimentum vitae sapien pellentesque habitant. Vel risus commodo viverra
+        maecenas accumsan lacus vel facilisis volutpat. Non pulvinar neque laoreet suspendisse. Nisl vel pretium lectus quam id leo in vitae. Diam maecenas sed enim ut sem viverra aliquet eget sit.
+      </p>
+    </div>
+    <div class="section">
+      <h2>Subheader</h2>
+      <h3>Sub-subheader</h3>
+      <img class="a" src="images/guy1.jpg" style="height: 250px;">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam maecenas sed enim ut sem viverra aliquet eget sit. Neque vitae tempus quam pellentesque. Imperdiet sed euismod
+        nisi porta lorem mollis aliquam ut. Natoque penatibus et magnis dis parturient montes nascetur ridiculus. At augue eget arcu dictum varius duis. Ornare massa eget egestas purus viverra accumsan in nisl nisi. Purus non enim praesent elementum
+        facilisis leo vel fringilla est. Habitasse platea dictumst quisque sagittis purus. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus. Est pellentesque elit ullamcorper dignissim cras tincidunt. In arcu cursus euismod
+        quis.
+      </p>
+      <img class="a" src="images/guy2.jpg" style="height: 250px;">
+      <p>
+        Feugiat pretium nibh ipsum consequat nisl vel pretium. Interdum velit laoreet id donec ultrices. Ultricies integer quis auctor elit sed vulputate mi. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Felis imperdiet
+        proin fermentum leo vel orci. Ut morbi tincidunt augue interdum velit euismod in. Sem et tortor consequat id porta nibh. Quis commodo odio aenean sed. Id aliquet lectus proin nibh. Imperdiet proin fermentum leo vel. Porttitor lacus luctus
+        accumsan tortor. Porttitor eget dolor morbi non arcu risus quis varius. Quam quisque id diam vel quam elementum pulvinar. Varius duis at consectetur lorem. Venenatis a condimentum vitae sapien pellentesque habitant. Vel risus commodo viverra
+        maecenas accumsan lacus vel facilisis volutpat. Non pulvinar neque laoreet suspendisse. Nisl vel pretium lectus quam id leo in vitae. Diam maecenas sed enim ut sem viverra aliquet eget sit.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam maecenas sed enim ut sem viverra aliquet eget sit. Neque vitae tempus quam pellentesque. Imperdiet sed euismod
+        nisi porta lorem mollis aliquam ut. Natoque penatibus et magnis dis parturient montes nascetur ridiculus. At augue eget arcu dictum varius duis. Ornare massa eget egestas purus viverra accumsan in nisl nisi. Purus non enim praesent elementum
+        facilisis leo vel fringilla est. Habitasse platea dictumst quisque sagittis purus. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus. Est pellentesque elit ullamcorper dignissim cras tincidunt. In arcu cursus euismod
+        quis.
+      </p>
+    </div>
+    <div class="section">
+      <h2>Subheader</h2>
+      <h3>Sub-subheader</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam maecenas sed enim ut sem viverra aliquet eget sit. Neque vitae tempus quam pellentesque. Imperdiet sed euismod
+        nisi porta lorem mollis aliquam ut. Natoque penatibus et magnis dis parturient montes nascetur ridiculus. At augue eget arcu dictum varius duis. Ornare massa eget egestas purus viverra accumsan in nisl nisi. Purus non enim praesent elementum
+        facilisis leo vel fringilla est. Habitasse platea dictumst quisque sagittis purus. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus. Est pellentesque elit ullamcorper dignissim cras tincidunt. In arcu cursus euismod
+        quis.
+      </p>
+      <p>
+        Feugiat pretium nibh ipsum consequat nisl vel pretium. Interdum velit laoreet id donec ultrices. Ultricies integer quis auctor elit sed vulputate mi. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Felis imperdiet
+        proin fermentum leo vel orci. Ut morbi tincidunt augue interdum velit euismod in. Sem et tortor consequat id porta nibh. Quis commodo odio aenean sed. Id aliquet lectus proin nibh. Imperdiet proin fermentum leo vel. Porttitor lacus luctus
+        accumsan tortor. Porttitor eget dolor morbi non arcu risus quis varius. Quam quisque id diam vel quam elementum pulvinar. Varius duis at consectetur lorem. Venenatis a condimentum vitae sapien pellentesque habitant. Vel risus commodo viverra
+        maecenas accumsan lacus vel facilisis volutpat. Non pulvinar neque laoreet suspendisse. Nisl vel pretium lectus quam id leo in vitae. Diam maecenas sed enim ut sem viverra aliquet eget sit.
+      </p>
+    </div>
+    <div class="section">
+      <div class="slideshow">
+        <img class="slide" src="images/guy1.jpg">
+        <img class="slide" src="images/guy2.jpg">
+        <img class="slide" src="images/guy3.jpg">
+        <img class="slide" src="images/guy4.jpg">
+
+        <button class="slideshow-button-L" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="slideshow-button-R" onclick="plusDivs(1)">&#10095;</button>
+        <script>
+          var slideIndex = 1;
+          showDivs(slideIndex);
+
+          function plusDivs(n) {
+            showDivs(slideIndex += n);
+          }
+
+          function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("slide");
+            if (n > x.length) {
+              slideIndex = 1
+            }
+            if (n < 1) {
+              slideIndex = x.length
+            }
+            for (i = 0; i < x.length; i++) {
+              x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+          }
+        </script>
+      </div>
+    </div>
+    <div class="section">
+      <iframe src="documents/PDF.pdf" style="border: 0;"></iframe>
+    </div>
+    <p class="footer">&copy; Nick Heyart 2021</p>
+  </div>
 </body>
+
 </html>

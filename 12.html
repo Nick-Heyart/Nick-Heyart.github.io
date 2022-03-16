@@ -263,27 +263,28 @@
       <p>
         The last thing I added was the text. This effect played around with data from previous frames, a necessary measure to smooth out the mouse inputs. I also had some trouble loading the Lato font that I use on the rest of the site into the JavaScript instance, but I eventually got that working.
       </p>
+    </div>
     <div class="section">
       <h2>Artifact 4: 3D Printer Tuning</h2>
       <img src="images/benchies.jpg" class="b">
-      <h3>Sub-title</h3>
+      <h3>Why was this done?</h3>
       <p>
         All FDM 3D printers are fundamentally the same. You have an extruder that spits out hot plastic onto a surface, usually accompanied by a fan to cool down the plastic once it has exited the nozzle. However, each printer has unique quirks in the way that it does these things that must be accounted for when generating toolpaths.
       </p>
       <h3>This Ain’t My First Rodeo</h3>
       <p>
-        My first printer was the 101 Hero. I was somewhat shielded from the process of tuning it’s print settings though, as I used a pirated version of Simplify3D. Simplify3D, as the name suggests, simplifies the 3D printing workflow by having premade profiles for most commercial printers. Later on, I got a better printer called the Anet A8. By this time, I had switched to using CURA, which requires that you make custom profiles from scratch for anything other than an Ultimaker printer. The A8 is less of a printer and more of a DIY kit. Each one is slightly different, as everyone messes up the build process in their own unique way. I didn’t document the tuning process, but I do know that it took upwards of 20 test prints to get things working properly.
+        My first printer was the 101 Hero. I was somewhat shielded from the process of tuning it’s print settings though, as I used a pirated version of Simplify3D. Simplify3D, as the name suggests, simplifies the 3D printing workflow by having premade profiles for most commercial printers. Later on, I got a better printer called the Anet A8. By this time, I had switched to using CURA, which requires that you make custom profiles from scratch for anything other than an Ultimaker printer. The A8 is less of a printer and more of a DIY kit. Each one is slightly different, as everyone messes up the build process in their own unique way. I didn’t document the tuning process, but I do know that it took upwards of 20 test prints to get things working properly. I later switched to PrusaSlicer.
       </p>
       <h3>New Stuff</h3>
       <p>
-        This year, DRSS got some new printers for our makerspace. They are Dremel 3D45s, and they are significantly better than the MakerBot Replicator plus and Z18 printers we’ve been stuck with for the last few years. Dremel attempted to supply an easy way to slice models for the printers by making some modifications to a version of CURA from 2013. Having come to this from the incredibly powerful PrusaSlicer, this was not going to do. I got PrusaSlicer installed on my school laptop and got to work on figuring out what makes the 3D45 tick.
+        This year, DRSS got some new printers for our makerspace. They are Dremel 3D45s, and they are significantly better than the MakerBot Replicator plus and Z18 printers we’ve been stuck with for the last few years. Dremel attempted to supply an easy way to slice models for the printers by making some modifications to a version of CURA from 2013. Having come to this from the incredibly powerful PrusaSlicer, this was not going to do. I get to spend my first two class periods in the makerspace, so I got PrusaSlicer installed on my school laptop and got to work on figuring out what makes the 3D45 tick.
       </p>
       <p>
         The whole process took me 5 test prints, much less than with any of the other printers I had tuned prior. There were also a few failed attempts at the very beginning, which will be documented here as well.
       </p>
       <h3>Failed Attempt 1</h3>
       <p>
-        I started off by plugging the 3D45’s build volume into PrusaSlicer and setting the G code flavor to Marlin. I looked at a pre-sliced file on a flash drive that came with the printers and copied the initialization and completion commands into PrusaSlicer as well. I loaded in a benchy boat and sliced it with everything else at default.
+        I started off by plugging the 3D45’s build volume into PrusaSlicer and setting the gcode flavor to Marlin. I looked at a pre-sliced file on a flash drive that came with the printers and copied the initialization and completion commands into PrusaSlicer from an example gcode file. I loaded in a benchy boat and sliced it with everything else at default.
       </p>
       <p>
         When I ran the G code, it successfully homed itself, heated up and then promptly rammed the print head into the rear right corner.
@@ -293,7 +294,7 @@
         The failure of attempt 1 was caused by the 3D45 using the center of the build plate as the origin point. This is usually only done by delta printers as that is where the print head is once they finish homing, but as I said before, each printer has its quirks. In PrusaSlicer, I moved the origin point to the center of the bed and tried again.
       </p>
       <p>
-        This time it started to make a first layer, but the default settings were not made with a glass print bed in mind. The print head was moving too fast and the sharp point of the hull at the front caused the line to peel up. I stopped the print before it made a mess.
+        This time it started to make a first layer, but the default settings were not made with a glass print bed in mind. The print head was moving too fast and the sharp point of the hull at the front caused the layer to peel up. I stopped the print before it made a mess.
       </p>
       <h3>Test Print 1</h3>
       <p>
