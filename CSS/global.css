@@ -538,6 +538,8 @@ iframe {
   height: calc(60vw / calc(16 / 9));
   border-radius: 15px 0 15px 0;
   margin: 10px 10%;
+  overflow: hidden;
+  display: block;
 }
 
 ::-webkit-scrollbar {
