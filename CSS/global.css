@@ -1,0 +1,173 @@
+@charset "UTF-8";
+
+:root {
+    /* Color definitions */
+    --dark: #090515;
+    --light: #EAE8F1;
+    --accent: #667fcc;
+    --accentLight: #8c9fd9;
+    --accentDark: #5f73ad;
+    --emp1: #EEC857;
+    --emp2: #E34764;
+
+    /* Composition settings */
+    --contentWidth: 65%;
+    --sidebarWidth: calc(calc(100% - var(--contentWidth)) / 2);
+    --overScroll: 20vh;
+    --contentHorizontalPadding: 3%;
+    --paragraphSpacing: 5px;
+
+    /* Style settings */
+    --borderRadius: 5px;
+    --borderWidth: 2px;
+    --dropdownOffset: 15px;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    margin: 0;
+    font-family: "Noto Sans Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: 100;
+}
+
+p {
+    padding: var(--paragraphSpacing) 0;
+}
+
+.header {
+    position: fixed;
+    height: 100%;
+    width: var(--sidebarWidth);
+    border-right: var(--borderWidth) solid var(--accent);
+    background-color: var(--dark);
+    background-blend-mode: difference;
+}
+
+.navigation {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navigation a {
+    font-size: 16px;
+    width: 90%;
+    margin: 0 5% 6px 5%;
+    display: inline-block;
+    box-sizing: border-box;
+    text-decoration: none;
+    padding: 2px 6px;
+    border-radius: var(--borderRadius);
+    background-color: var(--accentLight);
+    box-shadow: 0 0 var(--accentDark), 0 0 var(--accentDark);
+    color: var(--dark);
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+.navigation a:hover {
+    background-color: var(--accent);
+    box-shadow: 2px 0 var(--accentLight), -2px 0 var(--accentLight);
+}
+
+li.dropdown {
+    border-radius: var(--borderRadius);
+    position: relative;
+}
+
+li.dropdown::before {
+    content: "";
+    background-color: var(--dark);
+    height: var(--borderRadius);
+    width: calc(var(--borderRadius) + var(--borderWidth));
+    position: absolute;
+    right: calc(var(--dropdownOffset) - calc(var(--borderRadius) + var(--borderWidth) * 2));
+    top: calc(var(--borderRadius) * -1);
+    border-radius: 0 0 0 var(--borderRadius);
+    box-shadow: calc(var(--borderWidth) * -1) 0 var(--accent), calc(var(--borderWidth) * -1 + var(--borderRadius) * -1) 0 var(--dark);
+    display: none;
+}
+
+li.dropdown:hover::before{
+    display: block;
+}
+
+li.dropdown::after {
+    content: "";
+    background-color: var(--dark);
+    height: var(--borderRadius);
+    width: calc(var(--borderRadius) + var(--borderWidth));
+    position: absolute;
+    right: calc(var(--dropdownOffset) - calc(var(--borderRadius) + var(--borderWidth) * 2));
+    bottom: calc(var(--borderRadius) * -1);
+    border-radius: var(--borderRadius) 0 0 0;
+    box-shadow: calc(var(--borderWidth) * -1) 0 var(--accent), calc(var(--borderWidth) * -1 + var(--borderRadius) * -1) 0 var(--dark);
+    display: none;
+}
+
+li.dropdown:hover::after{
+    display: block;
+}
+
+li.dropdown:hover {
+    background-color: var(--dark);
+    box-shadow: var(--borderWidth) 0 var(--accent);
+    left: var(--dropdownOffset);
+}
+
+li.dropdown:hover>a {
+    position: relative;
+    left: calc(var(--dropdownOffset) * -1);
+}
+
+li.dropdown>ul {
+    height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    transition: left 0.1s ease-in-out;
+}
+
+li.dropdown:hover>ul {
+    height: auto;
+    opacity: 1;
+}
+
+.content {
+    width: calc(var(--contentWidth) - (var(--contentHorizontalPadding) * 2));
+    margin-left: var(--sidebarWidth);
+    border-right: var(--borderWidth) solid var(--accent);
+    padding: var(--overScroll) var(--contentHorizontalPadding);
+}
+
+@media (max-width: 800px) {
+    /* TODO: fix mobile navbar */
+    :root {
+        --overScroll: 5vh;
+        --contentHorizontalPadding: 2%;
+        --contentWidth: 95%;
+        --sidebarWidth: calc((100% - var(--contentWidth)));
+    }
+
+    .header {
+        width: var(--sidebarWidth);
+        position: absolute;
+        overflow: hidden;
+        transition: width 0.1s ease-in-out;
+    }
+
+    .navigation {
+        width: 40vw;
+        position: fixed;
+    }
+
+    .header:hover {
+        width: 50%;
+    }
+
+    .content {
+        margin-left: var(--sidebarWidth);
+        width: calc(var(--contentWidth) - (var(--contentHorizontalPadding) * 2) - calc((100% - var(--contentWidth))));
+    }
+}
