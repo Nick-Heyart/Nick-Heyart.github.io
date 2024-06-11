@@ -20,6 +20,7 @@
     --overScroll: 20vh;
     --contentHorizontalPadding: 3%;
     --paragraphSpacing: 5px;
+    --fontSize: 16px;
     --navFontSize: 16px;
     --navItemSpacing: 6px;
     --navVerticalPadding: 2px;
@@ -30,14 +31,25 @@
     --dropdownHovGuideRotation: 5deg;
     --imageWidth: calc(var(--sidebarWidth)*0.9);
     --imageHOffset: calc(var(--sidebarWidth)*0.05);
+    --bigImageWidth: 80vw;
+    --bigImageHeight: 80vh;
+    --bigImageMargin: calc(var(var(--bigImageWidth))/2) calc(var(var(--bigImageHeight)/2));
+    --ULBumpWidth: 5px;
+    --ULMargin: 10px;
+    --ULPadding: 8px;
+
+    /* Mobile composition settings */
+    --mobExSidebarWidth: 80%;
+
 
     /* Style settings */
-    --borderRadius: 5px;
+    --borderRadius: 2px;
     --borderWidth: 2px;
     --navGradientSize: 25vh;
     --animationTime: 0.1s;
 }
 
+/* Text styling */
 body {
     background-color: var(--dark);
     color: var(--light);
@@ -48,10 +60,52 @@ body {
     font-style: normal;
 }
 
+.content {
+    width: calc(var(--contentWidth) - (var(--contentHorizontalPadding) * 2));
+    margin-left: var(--sidebarWidth);
+    padding: var(--overScroll) var(--contentHorizontalPadding);
+    font-size: var(--fontSize);
+}
+
+/* Right border is a static element so that users who have overscroll enabled do not see the top/bottom extents of the border. */
+.header::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: calc(var(--contentWidth)*-1);
+    height: 100vh;
+    width: var(--borderWidth);
+    background-color: var(--accent);
+}
+
 p {
     padding: var(--paragraphSpacing) 0;
 }
 
+.content>ul, ul>ul, ol>ul {
+    list-style-type: none;
+    border-left: var(--borderWidth) solid var(--accent);
+    padding-left: var(--ULPadding);
+    margin-left: var(--ULMargin);
+}
+
+/* Tried to style OL but couldn't make it look decent, I don't plan on using it much anyway so who cares */
+
+.content>ul>li::before, ul>ul>li::before, ol>ul>li::before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    background-color: var(--accent);
+    height: calc(var(--fontSize)/2);
+    width: var(--ULBumpWidth);
+    bottom: calc(var(--fontSize)/8);
+    right: var(--ULPadding);
+    border-radius: 0 var(--borderRadius) var(--borderRadius) 0;
+    z-index: -1;
+}
+
+/* Image styling */
 .image {
     position: absolute;
     right: 0;
@@ -64,6 +118,7 @@ img {
     left: var(--imageHOffset);
 }
 
+/* Navigation styling */
 .header {
     position: fixed;
     height: 100%;
@@ -77,7 +132,6 @@ img {
     list-style-type: none;
     padding: 0;
     background-color: var(--dark);
-    z-index: 10;
 }
 
 .navigation a {
@@ -182,13 +236,6 @@ li.dropdown:hover>ul.navigation>li:last-child::after, li.dropdown:hover>ul.navig
     left: calc(var(--borderWidth)*-1);
 }
 
-.content {
-    width: calc(var(--contentWidth) - (var(--contentHorizontalPadding) * 2));
-    margin-left: var(--sidebarWidth);
-    border-right: var(--borderWidth) solid var(--accent);
-    padding: var(--overScroll) var(--contentHorizontalPadding);
-}
-
 @media (max-width: 800px) {
     /* TODO: fix mobile navbar */
     :root {
@@ -208,10 +255,11 @@ li.dropdown:hover>ul.navigation>li:last-child::after, li.dropdown:hover>ul.navig
     .navigation {
         width: 40vw;
         position: fixed;
+        display: none;
     }
 
     .header:hover {
-        width: 50%;
+        width: var(--mobExSidebarWidth);
     }
 
     .content {
