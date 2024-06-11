@@ -236,30 +236,36 @@ li.dropdown:hover>ul.navigation>li:last-child::after, li.dropdown:hover>ul.navig
     left: calc(var(--borderWidth)*-1);
 }
 
-@media (pointer:none), (pointer:coarse) {
+@media (pointer:none), (pointer:coarse), (max-width: 830px){
     /* TODO: fix mobile navbar */
     :root {
         --overScroll: 5vh;
         --contentHorizontalPadding: 2%;
         --contentWidth: 95%;
         --sidebarWidth: calc((100% - var(--contentWidth)));
+        --fontSize: 22px;
+        --navFontSize: 30px;
     }
 
     .header {
-        width: var(--sidebarWidth);
-        position: absolute;
+        position: fixed;
         overflow: hidden;
         transition: var(--animationTime) ease-in-out;
     }
 
     .navigation {
-        width: 40vw;
-        position: fixed;
-        display: none;
+        position: absolute;
+        right: 100px;
+        width: 100%;
+        transition: var(--animationTime) ease-in-out;
     }
 
     .header:hover {
         width: var(--mobExSidebarWidth);
+    }
+
+    .header:hover>.navigation {
+        right: 0;
     }
 
     .content {
