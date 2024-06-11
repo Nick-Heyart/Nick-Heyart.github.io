@@ -236,7 +236,7 @@ li.dropdown:hover>ul.navigation>li:last-child::after, li.dropdown:hover>ul.navig
     left: calc(var(--borderWidth)*-1);
 }
 
-@media (max-width: 800px) {
+@media (pointer:none), (pointer:coarse) {
     /* TODO: fix mobile navbar */
     :root {
         --overScroll: 5vh;
