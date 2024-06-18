@@ -241,13 +241,17 @@ li.dropdown:hover>ul.navigation>li:last-child::after, li.dropdown:hover>ul.navig
     :root {
         --overScroll: 5vh;
         --contentHorizontalPadding: 2%;
-        --contentWidth: 90%;
+        --contentWidth: 93%;
         --sidebarWidth: calc((100% - var(--contentWidth)));
         --fontSize: 30px;
         --navFontSize: 50px;
         --navItemSpacing: 18px;
         --navVerticalPadding: 16px;
         --animationTime: 0.05s;
+        --borderWidth: 5px;
+        --borderRadius: 5px;
+        --ULBumpWidth: 8px;
+        --arrowSize: 30px;
     }
 
     .header {
@@ -275,12 +279,47 @@ li.dropdown:hover>ul.navigation>li:last-child::after, li.dropdown:hover>ul.navig
         left: 20%;
     }
 
-    .header::after, li.dropdown:hover>a::after, li.dropdown>ul.navigation>li:first-child:before, li.dropdown>ul.navigation>li:last-child::after {
+    li.dropdown>ul.navigation>li:first-child {
+        border-top: solid var(--accent);
+
+    }
+
+    li.dropdown>ul.navigation>li:last-child {
+        border-bottom: solid var(--accent);
+    }
+
+    li.dropdown:hover>a::after, li.dropdown>ul.navigation>li:first-child:before, li.dropdown>ul.navigation>li:last-child::after {
         display: none;
+    }
+
+    .header::after {
+        position: fixed;
+        top: 50vh;
+        left: calc(var(--sidebarWidth)/3);
+        height: var(--arrowSize);
+        width: var(--arrowSize);
+        background-color: var(--dark);
+        rotate: 135deg;
+        box-shadow: var(--borderWidth) var(--borderWidth) var(--accent) inset ;
+        transition: var(--animationTime) ease-in-out;
+    }
+
+    .header:hover::after {
+        left: -10vw;
     }
 
     .content {
         margin-left: var(--sidebarWidth);
-        width: calc(var(--contentWidth) - (var(--contentHorizontalPadding) * 2) - calc((100% - var(--contentWidth))));
+        width: calc(var(--contentWidth) - (var(--contentHorizontalPadding) * 2));
+    }
+
+    .image {
+        position: unset;
+        width: unset;
+    }
+
+    img {
+        position: unset;
+        width: var(--contentWidth);
     }
 }
