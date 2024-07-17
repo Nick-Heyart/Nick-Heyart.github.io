@@ -1,8 +1,3 @@
----
-hide-toc: true
----
-
-# Welcome!
-
-Introduction paragraph
+# Nick Heyart
+I'm a CS student at Wright State University who dabbles in hardware and computer graphics.
 

@@ -1,0 +1,14 @@
+p>a>img {
+    border-radius: 5px;
+}
+
+a.bg-warning:hover::before {
+    content: "⛶";
+    display: block;
+    color: white;
+    background-color: rgba(0, 0, 0, .3);
+    position: absolute;
+    margin-left: 1rem;
+    padding: .12rem .35rem 0 .3rem;
+    border-radius: 5px 0;
+}
