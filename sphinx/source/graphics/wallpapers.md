@@ -15,6 +15,8 @@ Volumetrics are pretty heavy to simulate and render, and the giant curved refrac
 ![Abstract wallpaper with cool colors; a macro view of a fibrous material with lots of bokeh.](img/ribbon-reunion.png){.bg-warning w=200px align=left}
 I like the way this one looks, but the creation process was incredibly lazy. It's just one instance of an arch with a tweaked default material that's been instanced a bunch of times and placed under a blue spotlight. It took longer to render than it did to make.
 
+I was originally going for something with radial symmetry, but went with this instead. Sometimes I wonder how intentional "professional" abstract 3D wallpapers are, like the default Windows 11 one that looks like it should be hanging off of a crusty showerhead in the secondary bathroom of a 76 year old house. Did the creator sit down with a clear vision of the final image or did they stumble upon it?
+
 ## The Great Wallpaper Drought
 My main motivation for making my own wallpapers is the feeling that I am starting on a new "iteration" when setting up a new Linux install. I installed Fedora 38 a bit over a year ago, and that install persists to this day despite my best efforts. No new linux install means no demand for a new wallpaper, since I'm pretty settled in as is. I will update this section if I spontaneously decide to make more, probably when Windows 10 reaches EOL and I have to migrate my desktop over to Linux.
 

@@ -8,7 +8,16 @@ a.bg-warning:hover::before {
     color: white;
     background-color: rgba(0, 0, 0, .3);
     position: absolute;
-    margin-left: 1rem;
     padding: .12rem .35rem 0 .3rem;
     border-radius: 5px 0;
+}
+
+img.align-left {
+    margin-left: 0;
+    margin-bottom: .5rem;
+}
+
+img.align-right {
+    margin-right: 0;
+    margin-bottom: .5rem;
 }
