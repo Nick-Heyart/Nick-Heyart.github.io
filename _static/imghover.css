@@ -1,5 +1,6 @@
-p>a>img, p>a>video, figure>a>img, figure>a>video {
+p>a>img, p>a>video, figure>a>img, figure>a>video, p>video {
     border-radius: 5px;
+    max-width: 100%;
 }
 
 a.bg-warning:hover::before {
