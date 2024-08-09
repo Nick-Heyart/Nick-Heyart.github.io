@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/imghover.css?v=5ff048c0" />
+    <link rel="stylesheet" type="text/css" href="../_static/imghover.css?v=98c732d6" />
     
     
 
@@ -205,8 +205,11 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../_static/logo-light-mode.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../_static/logo-dark-mode.svg" alt="Dark Logo"/>
+  </div>
   
-  <span class="sidebar-brand-text">Portfolio  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -267,18 +270,18 @@
 <p>I usually open a web browser when I need a new desktop background, but sometimes I open Blender instead.</p>
 <section id="carmel-swirl">
 <h2>Carmel Swirl<a class="headerlink" href="#carmel-swirl" title="Link to this heading">¶</a></h2>
-<p><a class="bg-warning reference internal" href="../_images/carmel-swirl.png"><img alt="Abstract wallpaper with warm colors and radial patterns" class="bg-warning align-left" src="../_images/carmel-swirl.png" style="width: 200px;" /></a>
+<p><a class="bg-warning reference internal" href="../_images/carmel-swirl.avif"><img alt="Abstract wallpaper with warm colors and radial patterns" class="bg-warning align-left" src="../_images/carmel-swirl.avif" style="width: 200px;" /></a>
 The set up here is pretty simple, but took a lot of trial and error to get dialed in. I used geometry nodes to make a row of lines, rotate the vertices of those lines about the center point, then resample the lines and sweep a tall rectangular profile along their paths. A large area light is placed under the resulting mesh, generating the final image.</p>
 <p>This was rendered before Blender had a good solution for smooth normals on geometry nodes’ output, so I had to brute force a smooth appearance with an insane poly count. The lighting here is also very dependent on bounces, so it took my 3060 almost half an hour to get a noise-free image.</p>
 </section>
 <section id="space-refraction">
 <h2>Space Refraction<a class="headerlink" href="#space-refraction" title="Link to this heading">¶</a></h2>
-<p><a class="bg-warning reference internal" href="../_images/space-refraction.png"><img alt="Abstract wallpaper with sparse purple gas formations and spatial distortions" class="bg-warning align-left" src="../_images/space-refraction.png" style="width: 200px;" /></a>
+<p><a class="bg-warning reference internal" href="../_images/space-refraction.avif"><img alt="Abstract wallpaper with sparse purple gas formations and spatial distortions" class="bg-warning align-left" src="../_images/space-refraction.avif" style="width: 200px;" /></a>
 Volumetrics are pretty heavy to simulate and render, and the giant curved refractors used to get the distortion effect certainly don’t help. No simulation was done here however, just a 3D noise function plugged into the fog density. Because of the refraction planes, point lights show up as bright white spheres that I did not like. I had to strategically place them in the distortion seams to prevent them from being visible.</p>
 </section>
 <section id="fiber-arches">
 <h2>Fiber Arches<a class="headerlink" href="#fiber-arches" title="Link to this heading">¶</a></h2>
-<p><a class="bg-warning reference internal" href="../_images/ribbon-reunion.png"><img alt="Abstract wallpaper with cool colors; a macro view of a fibrous material with lots of bokeh." class="bg-warning align-left" src="../_images/ribbon-reunion.png" style="width: 200px;" /></a>
+<p><a class="bg-warning reference internal" href="../_images/ribbon-reunion.avif"><img alt="Abstract wallpaper with cool colors; a macro view of a fibrous material with lots of bokeh" class="bg-warning align-left" src="../_images/ribbon-reunion.avif" style="width: 200px;" /></a>
 I like the way this one looks, but the creation process was incredibly lazy. It’s just one instance of an arch with a tweaked default material that’s been instanced a bunch of times and placed under a blue spotlight. It took longer to render than it did to make.</p>
 <p>I was originally going for something with radial symmetry, but went with this instead. Sometimes I wonder how intentional “professional” abstract 3D wallpapers are, like the default Windows 11 one that looks like it should be hanging off of a crusty showerhead in the secondary bathroom of a 76 year old house. Did the creator sit down with a clear vision of the final image or did they stumble upon it?</p>
 </section>

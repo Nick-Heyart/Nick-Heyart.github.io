@@ -46,5 +46,11 @@ exclude_patterns = []
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'furo'
+html_theme_options = {
+    "navigation_with_keys": True,
+    "sidebar_hide_name": True,
+    "light_logo": "logo-light-mode.svg",
+    "dark_logo": "logo-dark-mode.svg"
+    }
 html_static_path = ['_static']
 html_css_files = ['imghover.css']

@@ -1,4 +1,4 @@
-p>a>img {
+p>a>img, p>a>video, figure>a>img, figure>a>video {
     border-radius: 5px;
 }
 
