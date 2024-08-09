@@ -14,7 +14,7 @@ When watching a chess documentary by [Fredrik Knudsen](https://www.youtube.com/@
 
 Next up was the cathedral. Most churches have either a flat or slightly declined floor for good audience visibility, However I struggled to make this look good while complying with the camera constraints of the template. I decided that this detail was not important enough to worry about in a 5 second animation, and made the floor into an inclined staircase for dramatic effect. The floor and pews were generated from a few profile splines using geometry nodes. Cathedrals usually have very detailed and intricate ceilings, however I used geometry nodes to make a spiral pattern of acoustic padding as a placeholder. For lighting, I just pointed a bunch of area lights at the ceiling as a temporary solution. Time for a first test render:
 
-![](img/bf-test-1.mp4)
+![](img/bf-test-1.mp4){.bg-warning}
 
 ## Revision Round 1
 
@@ -22,7 +22,7 @@ While I had the technical details nailed down, the angel did not have the intimi
 
 It occurred to me that the hero was nonexistent, so I just re-enabled the placeholder model and decided that I would work on that later. It is worth noting that I had never made a serious attempt at modeling or rigging a character before this point.
 
-![](img/bf-test-3.mp4)
+![](img/bf-test-3.mp4){.bg-warning}
 
 ## Revision Round 2
 
@@ -30,7 +30,7 @@ Obviously, I had a lot of work to do with materials. I had a hard time trying to
 
 I was not happy with how the distortion blades affected the lighting. Earlier renders had a subtle caustic pattern cast on the foreground, but I wanted it to be more visible. So, I made a large area light above the stairs that uses light nodes to project a voronoi pattern down on the scene. This is also animated by the position and shiver variables.
 
-![](img/bf-test-7.mp4)
+![](img/bf-test-7.mp4){.bg-warning}
 
 ## Revision Round 3
 
@@ -40,7 +40,7 @@ I posted a previous test render in Pwnisher's Discord server and got some feedba
 
 There were also a few lighting changes. I added more lights to the ceiling, and added multi-sample motion blur to the projection light since Blender wasn't calculating motion blur for it automatically. Since I had to make it very blurry before doing this, adding motion blur actually let me make the pattern sharper overall. I also added a few spotlights pointing down at the battle, and disabled shadow casting on the blades to get rid of weird shadows.
 
-![](img/bf-test-12.mp4)
+![](img/bf-test-12.mp4){.bg-warning}
 
 ## Preparing for submission
 
@@ -48,4 +48,4 @@ At this point, I only had a few days before the submission deadline. The angel's
 
 Speaking of the hero, I had completely neglected to work on him. I tried modeling and animating our hero stumbling up the stairs, getting pushed around by the angel's rage and clinging to the chairs on the sides for support. A few hours after I began work on this, I was completely hopeless and had immense respect for 3D character animators. I might have been able to finish a good model and animation before the deadline, but that would leave me no time for a final render. So, I re-enabled the placeholder figure that came with the template and threw together a geometry nodes setup to make it look interesting. Geometry nodes do well with hard surfaces, so I changed the hero's design to be plagued by shards that pierce him eternally, and gold parasites that run throughout his body. 
 
-![](img/bf-sub-3.mp4)
+![](img/bf-sub-3.mp4){.bg-warning}
