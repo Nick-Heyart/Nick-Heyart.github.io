@@ -126,8 +126,11 @@ let runTime = 0.0;
 
 const rotatSpeed = 0.001;
 const transSpeed = 0.0012;
+const scaleSpeed = 0.0005;
+
 let WASDQEVector = new vec3();
-let arrowVector = new vec2();
+let TFGHRYVector = new vec3();
+let IJKLUOVector = new vec3();
 
 // logic update function
 function update(timestamp) {
@@ -144,27 +147,39 @@ function update(timestamp) {
 
   // translate model using WASDQE
 	WASDQEVector.zero()
-	if (keys["KeyW"]) WASDQEVector.y -= 1;
-	if (keys["KeyS"]) WASDQEVector.y += 1;
 	if (keys["KeyA"]) WASDQEVector.x += 1;
 	if (keys["KeyD"]) WASDQEVector.x -= 1;
+	if (keys["KeyW"]) WASDQEVector.y -= 1;
+	if (keys["KeyS"]) WASDQEVector.y += 1;
 	if (keys["KeyQ"]) WASDQEVector.z -= 1;
 	if (keys["KeyE"]) WASDQEVector.z += 1;
-	WASDQEVector = WASDQEVector.normalized();
 
+	WASDQEVector = WASDQEVector.normalized();
 	monke.matrix = monke.matrix.translate(WASDQEVector.mult(deltaTime * transSpeed));
 	
-	// rotate model using arrow keys
-	arrowVector.zero();
-	if (keys["ArrowLeft"]) arrowVector.x -= 1;
-	if (keys["ArrowRight"]) arrowVector.x += 1;
-	if (keys["ArrowDown"]) arrowVector.y += 1;
-	if (keys["ArrowUp"]) arrowVector.y -= 1;
-	arrowVector = arrowVector.normalized();
+	// rotate model using TFGHRY
+	TFGHRYVector.zero();
+	if (keys["KeyT"]) TFGHRYVector.x -= 1;
+	if (keys["KeyG"]) TFGHRYVector.x += 1;
+	if (keys["KeyY"]) TFGHRYVector.y += 1;
+	if (keys["KeyR"]) TFGHRYVector.y -= 1;
+	if (keys["KeyH"]) TFGHRYVector.z -= 1;
+	if (keys["KeyF"]) TFGHRYVector.z += 1;
 
-	monke.matrix = monke.matrix.rotateZ(arrowVector.x * deltaTime * rotatSpeed)
-	monke.matrix = monke.matrix.rotateX(arrowVector.y * deltaTime * rotatSpeed);
+	TFGHRYVector = TFGHRYVector.normalized();
+	monke.matrix = monke.matrix.rotate(TFGHRYVector.mult(deltaTime * rotatSpeed));
 
+	// scale model using IJKLUO
+	IJKLUOVector.set(1);
+	const scaleFactor = deltaTime * scaleSpeed;
+	if (keys["KeyJ"]) IJKLUOVector.x -= scaleFactor;
+	if (keys["KeyL"]) IJKLUOVector.x += scaleFactor;
+	if (keys["KeyU"]) IJKLUOVector.y -= scaleFactor;
+	if (keys["KeyO"]) IJKLUOVector.y += scaleFactor;
+	if (keys["KeyK"]) IJKLUOVector.z -= scaleFactor;
+	if (keys["KeyI"]) IJKLUOVector.z += scaleFactor;
+
+	monke.matrix = monke.matrix.scale(IJKLUOVector);
 
   draw();
 	requestAnimationFrame(update);
@@ -182,6 +197,10 @@ window.addEventListener("keydown", (e) => {
 		} else {
 			monke.drawMode = gl.LINES;
 		}
+	}
+
+	if (keys["KeyP"]) {
+		monke.matrix = monke.matrix.one();
 	}
 
 	prompt.style.display = 'none';

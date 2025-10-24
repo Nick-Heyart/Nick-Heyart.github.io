@@ -90,6 +90,11 @@ class vec2 {
     this.y = 0;
   }
 
+  set(n) {
+    this.x = n;
+    this.y = n;
+  }
+
 	// basic math operations
 	add(other) {
 		if (other instanceof vec2){
@@ -186,6 +191,12 @@ class vec3 {
     this.x = 0;
     this.y = 0;
     this.z = 0;
+  }
+
+    set(n) {
+    this.x = n;
+    this.y = n;
+    this.z = n;
   }
 
 	// basic math operations
@@ -331,7 +342,7 @@ class mat4 {
 
   // TODO inverse, identity, determinant, etc (as needed)
 
-  // rotation/translation functions
+  // rotation/translation/scaling functions
 
   rotateX(rad) {
     const c = Math.cos(rad);
@@ -369,6 +380,40 @@ class mat4 {
     return this.multiply(rot);
   }
 
+  rotate(vec) {
+    const xc = Math.cos(vec.x);
+    const xs = Math.sin(vec.x);
+    const yc = Math.cos(vec.y);
+    const ys = Math.sin(vec.y);
+    const zc = Math.cos(vec.z);
+    const zs = Math.sin(vec.z);
+
+    const rotX = new mat4(
+      [1, 0, 0, 0],
+      [0, xc, -xs, 0],
+      [0, xs, xc, 0],
+      [0, 0, 0, 1]
+    );
+
+    const rotY = new mat4(
+      [yc, 0, ys, 0],
+      [0, 1, 0, 0],
+      [-ys, 0, yc, 0],
+      [0, 0, 0, 1]
+    );
+
+    const rotZ = new mat4(
+      [zc, -zs, 0, 0],
+      [zs, zc, 0, 0],
+      [0, 0, 1, 0],
+      [0, 0, 0, 1]
+    );
+
+    // using ZYX order, just like Blender
+    const rotAll = rotZ.multiply(rotY).multiply(rotX);
+    return this.multiply(rotAll);
+  }
+
   translate(vec) {
     const t = new mat4(
       [1, 0, 0, 0],
@@ -379,7 +424,17 @@ class mat4 {
     return this.multiply(t);
   }
 
-  // TODO scale, rotate around axis
+  scale(vec) {
+    const s = new mat4(
+      [vec.x, 0, 0, 0],
+      [0, vec.y, 0, 0],
+      [0, 0, vec.z, 0],
+      [0, 0, 0, 1]
+    );
+    return this.multiply(s);
+  }
+
+  // TODO rotate around axis
   // TODO quaternion functions (maybe)
 
   // Projection matrix generators
@@ -434,6 +489,8 @@ class mat4 {
     return this;
   }
 }
+
+// TODO position-direction view matrix for first-person stuff
 
 //------ General math helpers ------
 
