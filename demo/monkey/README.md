@@ -7,7 +7,7 @@ python3 -m http.server 8000
 Then open [http://127.0.0.1:8000/lab3.html](http://127.0.0.1:5500/lab3/lab3.html) in your browser.
 
 I also have it hosted on my github pages site:
-[]
+[https://nick-heyart.github.io/demo/monkey/lab3.html](https://nick-heyart.github.io/demo/monkey/lab3.html)
 
 # Implementation Details
 I extended the util.js math library to include all the basic 4x4 matrix math functions, using the
