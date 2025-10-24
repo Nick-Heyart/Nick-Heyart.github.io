@@ -13,7 +13,7 @@ I also have it hosted on my github pages site:
 
 Shoot the red thing until it dies. You can do this most effectively by following it closely, but
 this makes dodging projectiles more difficult. Upon winning, your time will be displayed. This is
-the scoring mechanic. See how fast you can beat the boss! My personal best is 41.820 seconds.
+the scoring mechanic. See how fast you can beat the boss! My personal best is 37.502 seconds.
 
 Boss health can be gauged by how many "teeth" remain, and the same goes for the points on your star.
 You can take five hits before dying.
